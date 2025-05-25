@@ -1,11 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="989b89d6-f1a8-4330-8e7c-5555c7738c9b" name="Changes" comment="" />
+    <list default="true" id="989b89d6-f1a8-4330-8e7c-5555c7738c9b" name="Changes" comment="能够成功运行myapp（代码生成器还没有安装成功）">
+      <change afterPath="$PROJECT_DIR$/myapp/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/.husky/commit-msg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/.husky/pre-commit" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/.prettierrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/config/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/config/defaultSettings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/config/oneapi.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/config/proxy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/config/routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/jest.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/mock/listTableList.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/mock/notices.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/mock/requestRecord.mock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/mock/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/mock/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/pnpm-lock.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/public/CNAME" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/public/icons/icon-128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/public/icons/icon-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/public/icons/icon-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/public/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/public/pro_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/public/scripts/loading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/access.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/app.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/components/Footer/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/components/HeaderDropdown/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/components/RightContent/AvatarDropdown.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/components/RightContent/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/global.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/global.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/bn-BD.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/bn-BD/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/bn-BD/globalHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/bn-BD/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/bn-BD/pages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/bn-BD/pwa.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/bn-BD/settingDrawer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/bn-BD/settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/en-US.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/en-US/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/en-US/globalHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/en-US/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/en-US/pages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/en-US/pwa.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/en-US/settingDrawer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/en-US/settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/fa-IR.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/fa-IR/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/fa-IR/globalHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/fa-IR/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/fa-IR/pages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/fa-IR/pwa.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/fa-IR/settingDrawer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/fa-IR/settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/id-ID.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/id-ID/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/id-ID/globalHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/id-ID/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/id-ID/pages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/id-ID/pwa.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/id-ID/settingDrawer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/id-ID/settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/ja-JP.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/ja-JP/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/ja-JP/globalHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/ja-JP/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/ja-JP/pages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/ja-JP/pwa.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/ja-JP/settingDrawer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/ja-JP/settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/pt-BR.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/pt-BR/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/pt-BR/globalHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/pt-BR/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/pt-BR/pages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/pt-BR/pwa.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/pt-BR/settingDrawer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/pt-BR/settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-CN.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-CN/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-CN/globalHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-CN/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-CN/pages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-CN/pwa.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-CN/settingDrawer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-CN/settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-TW.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-TW/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-TW/globalHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-TW/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-TW/pages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-TW/pwa.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-TW/settingDrawer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/locales/zh-TW/settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/pages/404.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/pages/Admin.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/pages/TableList/components/UpdateForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/pages/TableList/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/pages/User/Login/__snapshots__/login.test.tsx.snap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/pages/User/Login/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/pages/User/Login/login.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/pages/Welcome.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/requestErrorConfig.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/ant-design-pro/api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/ant-design-pro/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/ant-design-pro/login.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/ant-design-pro/typings.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/swagger/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/swagger/pet.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/swagger/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/swagger/typings.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/services/swagger/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/src/typings.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/tests/setupTests.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/types/cache/cache.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/types/cache/login.cache.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/types/cache/mock/login.mock.cache.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/types/cache/mock/mock.cache.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/types/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/myapp" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -16,18 +156,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/code/Yupi_Projects/usercenter/myapp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\download\\code\\WebStorm\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/code/Yupi_Projects/usercenter",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.i18n-remove.executor": "Run",
+    "npm.serve.executor": "Run",
+    "npm.start.executor": "Run",
+    "ts.external.directory.path": "D:\\code\\Yupi_Projects\\usercenter\\myapp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="i18n-remove" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/myapp/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="i18n-remove" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/myapp/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/myapp/package.json" />
       <command value="run" />
@@ -41,6 +207,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.serve" />
+        <item itemvalue="npm.i18n-remove" />
       </list>
     </recent_temporary>
   </component>
@@ -60,10 +228,36 @@
       <option name="presentableId" value="Default" />
       <updated>1747811251021</updated>
       <workItem from="1747811252642" duration="66000" />
+      <workItem from="1748006418695" duration="502000" />
+      <workItem from="1748051377831" duration="3540000" />
     </task>
+    <task id="LOCAL-00001" summary="能够成功运行myapp（代码生成器还没有安装成功）">
+      <option name="closed" value="true" />
+      <created>1748006761136</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1748006761136</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="能够成功运行myapp（代码生成器还没有安装成功）" />
+    <option name="LAST_COMMIT_MESSAGE" value="能够成功运行myapp（代码生成器还没有安装成功）" />
   </component>
 </project>
