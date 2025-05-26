@@ -137,7 +137,6 @@
       <change afterPath="$PROJECT_DIR$/myapp/types/cache/mock/login.mock.cache.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myapp/types/cache/mock/mock.cache.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myapp/types/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +159,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/code/Yupi_Projects/usercenter",
+    "last_opened_file_path": "D:/code/ruoyi/oa_system/RuoYi-Vue3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -230,6 +229,7 @@
       <workItem from="1747811252642" duration="66000" />
       <workItem from="1748006418695" duration="502000" />
       <workItem from="1748051377831" duration="3540000" />
+      <workItem from="1748250113894" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="能够成功运行myapp（代码生成器还没有安装成功）">
       <option name="closed" value="true" />
