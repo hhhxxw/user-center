@@ -12,6 +12,7 @@ import org.hxw.backend.model.domain.User;
 */
 public interface UserMapper extends BaseMapper<User> {
 
+
 }
 
 

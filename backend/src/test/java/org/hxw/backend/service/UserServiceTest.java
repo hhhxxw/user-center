@@ -2,9 +2,11 @@ package org.hxw.backend.service;
 import java.util.Date;
 
 import jakarta.annotation.Resource;
+import org.hxw.backend.mapper.UserMapper;
 import org.hxw.backend.model.domain.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -16,6 +18,9 @@ public class UserServiceTest {
 
     @Resource
     private UserService userService;
+
+    @Autowired
+    UserMapper userMapper;
     @Test
     public void testAddUser(){
         User user = new User();
@@ -30,5 +35,6 @@ public class UserServiceTest {
         System.out.println(user.getId());
         // 断言用来测试，实际结果是否等于真实结果
         Assertions.assertTrue(result);
+
     }
 }
