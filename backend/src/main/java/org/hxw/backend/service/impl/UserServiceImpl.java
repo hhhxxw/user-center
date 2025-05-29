@@ -30,7 +30,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if(StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)){
             return -1;
         }
-        if(userPassword.length() < 4){
+        if(userAccount.length() < 4){
             return -1;
         }
         if(userPassword.length() < 8 || checkPassword.length() < 8){
@@ -39,7 +39,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         // 账户不能包含特殊字符
         String validPattern = "[`~!@#$%^&*()+=|{}':;',\\\\[\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
         Matcher matcher = Pattern.compile(validPattern).matcher(userAccount);
-        if(!matcher.find()){
+        if(matcher.find()){
             return -1;
         }
         // 密码和校验密码相同
