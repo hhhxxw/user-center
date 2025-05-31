@@ -3,6 +3,7 @@ package org.hxw.backend.service.impl;
 import ch.qos.logback.core.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.hxw.backend.mapper.UserMapper;
@@ -35,9 +36,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      */
     private static final String SALT = "hxw";
 
+    /**
+     * 用户登陆状态
+     */
+    public static final String USER_LOGIN_STATE = "userLoginState";
+
+
     @Override
     public long userRegister(String userAccount, String userPassword, String checkPassword) {
         if(StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)){
+            // TODO 修改为自定义异常
             return -1;
         }
         if(userAccount.length() < 4){
@@ -90,7 +98,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      */
 
     @Override
-    public User userLogin(String userAccount, String userPassword) {
+    public User userLogin(String userAccount, String userPassword, HttpServletRequest request) {
         if(StringUtils.isAnyBlank(userAccount, userPassword)){
             return null;
         }
@@ -121,7 +129,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             return null;
         }
 
-       return user;
+        // 用户信息脱敏,也可以使用DTO类
+        User safetyUser = new User();
+        safetyUser.setId(user.getId());
+        safetyUser.setUsername(user.getUsername());
+        safetyUser.setUserAccount(user.getUserAccount());
+        safetyUser.setAvatarUrl(user.getAvatarUrl());
+        safetyUser.setGender(user.getGender());
+        safetyUser.setPhone(user.getEmail());
+        safetyUser.setEmail(user.getEmail());
+        safetyUser.setUserStatus(user.getUserStatus());
+        safetyUser.setCreateTime(user.getCreateTime());
+
+        // 记录用户的登陆状态
+        request.getSession().setAttribute(USER_LOGIN_STATE, safetyUser);
+
+       return safetyUser;
 
     }
 }

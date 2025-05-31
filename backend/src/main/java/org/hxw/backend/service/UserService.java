@@ -1,7 +1,10 @@
 package org.hxw.backend.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.hxw.backend.model.domain.User;
+
+import java.net.http.HttpClient;
 
 /**
  * 用户服务
@@ -23,5 +26,5 @@ public interface UserService extends IService<User> {
      * @param userPassword 用户密码
      * @return 脱敏后的用户信息
      */
-    User userLogin(String userAccount, String userPassword);
+    User userLogin(String userAccount, String userPassword, HttpServletRequest request);
 }

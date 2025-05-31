@@ -2,6 +2,7 @@ package org.hxw.backend.model.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.Getter;
@@ -74,6 +75,7 @@ public class User {
     /**
      * 是否删除
      */
+    @TableLogic
     private Integer isDelete;
 
     public Long getId() {
