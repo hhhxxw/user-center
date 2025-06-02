@@ -1,21 +1,18 @@
 package org.hxw.backend.model.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Date;
+import lombok.Data;
 
 /**
  * 用户
  * @TableName user
  */
-@Data
 @TableName(value ="user")
+@Data
 public class User {
     /**
      * id
@@ -69,17 +66,17 @@ public class User {
     private Date createTime;
 
     /**
-     * 
+     *
      */
     private Date updateTime;
-    /**
-     * 0-普通用户 1-表示管理员
-     */
-    private Integer role;
 
     /**
      * 是否删除
      */
-    @TableLogic
     private Integer isDelete;
+
+    /**
+     * 用户权限
+     */
+    private Integer userRole;
 }

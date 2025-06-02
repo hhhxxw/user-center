@@ -41,7 +41,7 @@ public class UserServiceTest {
     @Test
     void userRegister() {
         // 定义几个测试参数
-        String userAccount = "hxwhhhh";
+        String userAccount = "hxwhhh";
         String userPassword = "77587587758258";
         String checkPassword = "77587587758258";
         long result = userService.userRegister(userAccount, userPassword, checkPassword);

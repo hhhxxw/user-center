@@ -16,6 +16,7 @@ import org.springframework.util.DigestUtils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.hxw.backend.constant.UserConstant.USER_LOGIN_STATE;
 
 
 /**
@@ -35,12 +36,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      * 盐值 混淆密码
      */
     private static final String SALT = "hxw";
-
-    /**
-     * 用户登陆状态
-     */
-    public static final String USER_LOGIN_STATE = "userLoginState";
-
 
     @Override
     public long userRegister(String userAccount, String userPassword, String checkPassword) {
@@ -140,6 +135,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         safetyUser.setEmail(user.getEmail());
         safetyUser.setUserStatus(user.getUserStatus());
         safetyUser.setCreateTime(user.getCreateTime());
+        safetyUser.setUserRole(user.getUserRole());
 
         // 记录用户的登陆状态
         request.getSession().setAttribute(USER_LOGIN_STATE, safetyUser);
