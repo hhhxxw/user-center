@@ -1,3 +1,4 @@
+import { BLOG_Link } from '@/constants';
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
 import React from 'react';
@@ -10,24 +11,25 @@ const Footer: React.FC = () => {
       }}
       links={[
         {
-          key: 'Ant Design Pro',
-          title: 'Ant Design Pro',
-          href: 'https://pro.ant.design',
+          key: 'code',
+          title: '个人博客',
+          href: BLOG_Link,
           blankTarget: true,
         },
         {
           key: 'github',
           title: <GithubOutlined />,
-          href: 'https://github.com/ant-design/ant-design-pro',
+          href: BLOG_Link,
           blankTarget: true,
         },
         {
-          key: 'Ant Design',
-          title: 'Ant Design',
-          href: 'https://ant.design',
+          key: 'code1',
+          title: 'HXW GitHub',
+          href: BLOG_Link,
           blankTarget: true,
         },
       ]}
+      copyright={`${new Date().getFullYear()} HXW 版权所有`}
     />
   );
 };
