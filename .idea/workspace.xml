@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="989b89d6-f1a8-4330-8e7c-5555c7738c9b" name="Changes" comment="能够成功运行myapp（代码生成器还没有安装成功）">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="989b89d6-f1a8-4330-8e7c-5555c7738c9b" name="Changes" comment="前端优化+README文件编写">
       <change afterPath="$PROJECT_DIR$/myapp/.editorconfig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myapp/.eslintignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myapp/.eslintrc.js" afterDir="false" />
@@ -146,7 +145,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/myapp" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -234,7 +233,7 @@
       <workItem from="1748006418695" duration="502000" />
       <workItem from="1748051377831" duration="3540000" />
       <workItem from="1748250113894" duration="40000" />
-      <workItem from="1748957347195" duration="468000" />
+      <workItem from="1748957347195" duration="2021000" />
     </task>
     <task id="LOCAL-00001" summary="能够成功运行myapp（代码生成器还没有安装成功）">
       <option name="closed" value="true" />
@@ -263,6 +262,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="能够成功运行myapp（代码生成器还没有安装成功）" />
-    <option name="LAST_COMMIT_MESSAGE" value="能够成功运行myapp（代码生成器还没有安装成功）" />
+    <MESSAGE value="前端优化+README文件编写" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端优化+README文件编写" />
   </component>
 </project>
