@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="989b89d6-f1a8-4330-8e7c-5555c7738c9b" name="Changes" comment="前端优化+README文件编写">
+    <list default="true" id="989b89d6-f1a8-4330-8e7c-5555c7738c9b" name="Changes" comment="git commit -m &quot;docs: 更新README文件&quot;">
       <change afterPath="$PROJECT_DIR$/myapp/.editorconfig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myapp/.eslintignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myapp/.eslintrc.js" afterDir="false" />
@@ -137,6 +137,7 @@
       <change afterPath="$PROJECT_DIR$/myapp/types/cache/mock/login.mock.cache.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myapp/types/cache/mock/mock.cache.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/myapp/types/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,6 +171,7 @@
     "npm.i18n-remove.executor": "Run",
     "npm.serve.executor": "Run",
     "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "D:\\code\\Yupi_Projects\\usercenter\\myapp\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -233,7 +235,8 @@
       <workItem from="1748006418695" duration="502000" />
       <workItem from="1748051377831" duration="3540000" />
       <workItem from="1748250113894" duration="40000" />
-      <workItem from="1748957347195" duration="2021000" />
+      <workItem from="1748957347195" duration="2332000" />
+      <workItem from="1748999217598" duration="3646000" />
     </task>
     <task id="LOCAL-00001" summary="能够成功运行myapp（代码生成器还没有安装成功）">
       <option name="closed" value="true" />
@@ -263,6 +266,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="能够成功运行myapp（代码生成器还没有安装成功）" />
     <MESSAGE value="前端优化+README文件编写" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端优化+README文件编写" />
+    <MESSAGE value="git commit -m &quot;docs: 更新README文件&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;docs: 更新README文件&quot;" />
   </component>
 </project>
