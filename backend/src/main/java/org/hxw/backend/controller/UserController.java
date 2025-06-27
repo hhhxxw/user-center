@@ -9,6 +9,8 @@ import org.hxw.backend.model.domain.request.UserLoginRequest;
 import org.hxw.backend.model.domain.request.UserRegisterRequest;
 import org.hxw.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,7 +25,8 @@ import static org.hxw.backend.constant.UserConstant.USER_LOGIN_STATE;
  * @author hxw
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
+@CrossOrigin(origins = {"http://localhost:4399"}, allowCredentials = "true")
 public class UserController {
     @Autowired
     UserService userService;
@@ -114,5 +117,35 @@ public class UserController {
         }
         return true;
     }
+    /**
+     * 获取当前用户
+     *
+     * @param request
+     * @return
+     */
+//    @GetMapping("/current")
+//    public User getCurrentUser(HttpServletRequest request) {
+//        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
+//        // 这里出现了空指针异常
+//        User currentUser = (User) userObj;
+//        long userId = currentUser.getId();
+//        User user = userService.getById(userId);
+//        User safetyUser = userService.getSafetyUser(user);
+//        return safetyUser;
+//    }
+    @GetMapping("/current")
+    public ResponseEntity<?> getCurrentUser(HttpServletRequest request) {
+        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
+        if (userObj == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("用户未登录");
+        }
+
+        User currentUser = (User) userObj;
+        User user = userService.getById(currentUser.getId());
+        User safetyUser = userService.getSafetyUser(user);
+        return ResponseEntity.ok(safetyUser);
+    }
+
 
 }

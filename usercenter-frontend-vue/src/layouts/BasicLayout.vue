@@ -17,7 +17,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import GlobalHeader from "@/layouts/GlobalHeader.vue";
+import GlobalHeader from "@/components/GlobalHeader.vue";
+// import { getCurrentUser } from "@/api/user";
+
+// // 获取当前用户来进行一个测试
+// getCurrentUser().then((res) => {
+//   console.log(res);
+// });
 </script>
 <style scoped>
 #basicLayout .footer {
