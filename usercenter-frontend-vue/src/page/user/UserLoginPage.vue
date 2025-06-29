@@ -63,7 +63,7 @@ const formState = reactive<FormState>({
 const loginUserStore = useLoginUserStore();
 const router = useRouter();
 /**
- * 提交表单
+ * 提交表单： 和后端交互的核心代码
  * @param values
  */
 
@@ -78,8 +78,9 @@ const handleSubmit = async (values: any) => {
       path: "/",
       replace: true,
     });
+  } else {
+    console.log("登陆失败");
   }
-  console.log("Success:", values);
 };
 
 const onFinishFailed = (errorInfo: any) => {
