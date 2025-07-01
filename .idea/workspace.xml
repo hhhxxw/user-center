@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="989b89d6-f1a8-4330-8e7c-5555c7738c9b" name="Changes" comment="git commit -m &quot;docs: 更新README文件&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/hxw/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/hxw/backend/BackendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/hxw/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/hxw/backend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/hxw/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/hxw/backend/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/hxw/backend/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/hxw/backend/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usercenter-frontend-vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/usercenter-frontend-vue/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usercenter-frontend-vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/usercenter-frontend-vue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usercenter-frontend-vue/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usercenter-frontend-vue/src/layouts/BasicLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/usercenter-frontend-vue/src/layouts/BasicLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usercenter-frontend-vue/src/layouts/GlobalHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/usercenter-frontend-vue/src/layouts/GlobalHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usercenter-frontend-vue/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/usercenter-frontend-vue/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usercenter-frontend-vue/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/usercenter-frontend-vue/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +107,7 @@
       <workItem from="1748999217598" duration="3646000" />
       <workItem from="1751010977624" duration="40000" />
       <workItem from="1751025770767" duration="11000" />
+      <workItem from="1751243875123" duration="367000" />
     </task>
     <task id="LOCAL-00001" summary="能够成功运行myapp（代码生成器还没有安装成功）">
       <option name="closed" value="true" />

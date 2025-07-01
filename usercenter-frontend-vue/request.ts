@@ -1,8 +1,20 @@
 // 引入axios请求库
 import axios from "axios";
-
+// alert(process.env.NODE_ENV);
+axios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.config.url.includes("/api/user/current")) {
+      return { data: { id: 1, name: "Mock User" } }; // 返回模拟数据
+    }
+    return Promise.reject(error);
+  }
+);
 const myAxios = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:8080"
+      : "https://codefather.cn",
   timeout: 10000,
   withCredentials: true,
 });

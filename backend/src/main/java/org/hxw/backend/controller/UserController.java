@@ -25,7 +25,7 @@ import static org.hxw.backend.constant.UserConstant.USER_LOGIN_STATE;
  * @author hxw
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 @CrossOrigin(origins = {"http://localhost:4399"}, allowCredentials = "true")
 public class UserController {
     @Autowired
