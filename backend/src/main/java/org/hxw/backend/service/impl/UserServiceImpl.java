@@ -2,6 +2,7 @@ package org.hxw.backend.service.impl;
 
 import ch.qos.logback.core.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.repository.AbstractRepository;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -25,22 +26,21 @@ import static org.hxw.backend.constant.UserConstant.USER_LOGIN_STATE;
 * @createDate 2025-05-27 19:17:05
 */
 @Service
+// 方便编写日志
 @Slf4j
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-
-    /**
-     * 盐值 混淆密码
-     */
-    private static final String SALT = "hxw";
+    final String SALT = "hxw";
 
     @Override
     public long userRegister(String userAccount, String userPassword, String checkPassword) {
+        /**
+         * 1. 校验
+         */
         if(StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)){
-            // TODO 修改为自定义异常
             return -1;
         }
         if(userAccount.length() < 4){
@@ -49,51 +49,42 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if(userPassword.length() < 8 || checkPassword.length() < 8){
             return -1;
         }
-        // 账户不能包含特殊字符
-        String validPattern = "[`~!@#$%^&*()+=|{}':;',\\\\[\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
-        Matcher matcher = Pattern.compile(validPattern).matcher(userAccount);
+        // 账号不能包含特殊字符
+        String validateRegExp = "[^a-zA-Z0-9]";
+        Matcher matcher = Pattern.compile(validateRegExp).matcher(userAccount);
         if(matcher.find()){
             return -1;
         }
-        // 密码和校验密码相同
+
         if(!userPassword.equals(checkPassword)){
             return -1;
         }
-        //账户不能重复
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("userAccount", userAccount);
-        long count = userMapper.selectCount(queryWrapper);
-        if(count > 0){
-            return -1;
-        }
-        // 2. 加密
-//        final String SALT = "hxw"; 提取公共盐值
+
+        // 加密
+
         String encryptPassword = DigestUtils.md5DigestAsHex((SALT + userPassword).getBytes());
 
-
-        // 3.插入数据
+        // 插入数据
         User user = new User();
         user.setUserAccount(userAccount);
+        // 使用加密之后的密码
         user.setUserPassword(encryptPassword);
-
         boolean saveResult = this.save(user);
-
-        // 防止拆箱错误
         if(!saveResult){
-           return -1;
+            return -1;
         }
-        return 0;
+        return user.getId();
     }
 
     /**
-     * 用户登陆功能
-     * @param userAccount 用户账户
-     * @param userPassword 用户密码
+     *
+     * @param userAccount
+     * @param userPassword
      * @return
+     * 用户信息就是用户对象
      */
-
     @Override
-    public User userLogin(String userAccount, String userPassword, HttpServletRequest request) {
+    public User doLogin(String userAccount, String userPassword) {
         if(StringUtils.isAnyBlank(userAccount, userPassword)){
             return null;
         }
@@ -104,67 +95,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             return null;
         }
 
-        // 账户不能包含特殊字符
-        String validPattern = "[`~!@#$%^&*()+=|{}':;',\\\\[\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
-        Matcher matcher = Pattern.compile(validPattern).matcher(userAccount);
-        if(matcher.find()){
+        // 不包含特殊字符
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9]+$");
+        Matcher matcher = pattern.matcher(userAccount);
+        if (!matcher.matches()) {
+            // 包含特殊字符
             return null;
         }
-        // 2. 加密
-//        final String SALT = "hxw"; 提取到公共部分
-        String encryptPassword = DigestUtils.md5DigestAsHex((SALT + userPassword).getBytes());
-
-        //查询用户是否存在
+        // 加密
+        String encryptPassword  = DigestUtils.md5DigestAsHex((SALT + userPassword).getBytes());
+        // 查询用户是否存在
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("userAccount", userAccount);
-        queryWrapper.eq("userPassword",encryptPassword);
+        queryWrapper.eq("userPassword", encryptPassword);
         User user = userMapper.selectOne(queryWrapper);
         if(user == null){
+            log.info("user login failed, userAccount cannot match userPassword");
             return null;
         }
-
-        // 用户信息脱敏,也可以使用DTO类
-        User safetyUser = new User();
-        safetyUser.setId(user.getId());
-        safetyUser.setUsername(user.getUsername());
-        safetyUser.setUserAccount(user.getUserAccount());
-        safetyUser.setAvatarUrl(user.getAvatarUrl());
-        safetyUser.setGender(user.getGender());
-        safetyUser.setPhone(user.getEmail());
-        safetyUser.setEmail(user.getEmail());
-        safetyUser.setUserStatus(user.getUserStatus());
-        safetyUser.setCreateTime(user.getCreateTime());
-        safetyUser.setUserRole(user.getUserRole());
-
-        // 记录用户的登陆状态
-        request.getSession().setAttribute(USER_LOGIN_STATE, safetyUser);
-
-       return safetyUser;
-    }
-    /**
-     * 用户脱敏
-     *
-     * @param originUser
-     * @return
-     */
-    @Override
-    public User getSafetyUser(User originUser) {
-        if (originUser == null) {
-            return null;
-        }
-        User safetyUser = new User();
-        safetyUser.setId(originUser.getId());
-        safetyUser.setUsername(originUser.getUsername());
-        safetyUser.setUserAccount(originUser.getUserAccount());
-        safetyUser.setAvatarUrl(originUser.getAvatarUrl());
-        safetyUser.setGender(originUser.getGender());
-        safetyUser.setPhone(originUser.getPhone());
-        safetyUser.setEmail(originUser.getEmail());
-//        safetyUser.setPlanetCode(originUser.getPlanetCode());
-        safetyUser.setUserRole(originUser.getUserRole());
-        safetyUser.setUserStatus(originUser.getUserStatus());
-        safetyUser.setCreateTime(originUser.getCreateTime());
-        return safetyUser;
+        return user;
     }
 }
 
