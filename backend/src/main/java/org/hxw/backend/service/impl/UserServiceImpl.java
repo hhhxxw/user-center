@@ -1,4 +1,5 @@
 package org.hxw.backend.service.impl;
+import java.util.Date;
 
 import ch.qos.logback.core.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -32,6 +33,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     implements UserService {
     @Autowired
     private UserMapper userMapper;
+
+    /**
+     * 用户登陆状态
+     */
+    private static final String USER_LOGIN_STATE = "userLoginState";
 
     final String SALT = "hxw";
 
@@ -84,7 +90,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      * 用户信息就是用户对象
      */
     @Override
-    public User doLogin(String userAccount, String userPassword) {
+    public User doLogin(String userAccount, String userPassword, HttpServletRequest request) {
         if(StringUtils.isAnyBlank(userAccount, userPassword)){
             return null;
         }
@@ -113,6 +119,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             log.info("user login failed, userAccount cannot match userPassword");
             return null;
         }
+        // 脱敏
+        User safetyUser = new User();
+        safetyUser.setId(user.getId());
+        safetyUser.setUsername(user.getUsername());
+        safetyUser.setUserAccount(user.getUserAccount());
+        safetyUser.setAvatarUrl(user.getAvatarUrl());
+        safetyUser.setGender(user.getGender());
+        safetyUser.setPhone(user.getPhone());
+        safetyUser.setEmail(user.getEmail());
+        safetyUser.setUserStatus(user.getUserStatus());
+        safetyUser.setCreateTime(user.getCreateTime());
+
+        request.getSession().setAttribute(USER_LOGIN_STATE, user);
         return user;
     }
 }
