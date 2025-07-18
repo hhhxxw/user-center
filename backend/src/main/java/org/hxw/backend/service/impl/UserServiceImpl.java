@@ -34,10 +34,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     @Autowired
     private UserMapper userMapper;
 
-    /**
-     * 用户登陆状态
-     */
-    private static final String USER_LOGIN_STATE = "userLoginState";
+
 
     final String SALT = "hxw";
 
@@ -119,20 +116,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 //            log.info("user login failed, userAccount cannot match userPassword");
             return null;
         }
-        // 脱敏
+       // 脱敏
+        User safetyUser = getSafetyUser(user);
+        request.getSession().setAttribute(USER_LOGIN_STATE, safetyUser);
+        return safetyUser;
+    }
+    @Override
+    public User getSafetyUser(User originUser){
         User safetyUser = new User();
-        safetyUser.setId(user.getId());
-        safetyUser.setUsername(user.getUsername());
-        safetyUser.setUserAccount(user.getUserAccount());
-        safetyUser.setAvatarUrl(user.getAvatarUrl());
-        safetyUser.setGender(user.getGender());
-        safetyUser.setPhone(user.getPhone());
-        safetyUser.setEmail(user.getEmail());
-        safetyUser.setUserStatus(user.getUserStatus());
-        safetyUser.setCreateTime(user.getCreateTime());
-
-        request.getSession().setAttribute(USER_LOGIN_STATE, user);
-        return user;
+        safetyUser.setId(originUser.getId());
+        safetyUser.setUsername(originUser.getUsername());
+        safetyUser.setUserAccount(originUser.getUserAccount());
+        safetyUser.setAvatarUrl(originUser.getAvatarUrl());
+        safetyUser.setGender(originUser.getGender());
+        safetyUser.setPhone(originUser.getPhone());
+        safetyUser.setEmail(originUser.getEmail());
+        safetyUser.setUserRole(originUser.getUserRole());
+        safetyUser.setUserStatus(originUser.getUserStatus());
+        safetyUser.setCreateTime(originUser.getCreateTime());
+        return safetyUser;
     }
 }
 

@@ -6,10 +6,13 @@ spring:
     url: jdbc:mysql://localhost:3306/hxw?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
     username: root
     password: 1234
+  session:
+    timeout: 86400
+
 
 
 server:
-  port: 8080
+  port: 8999
 #指定全局接口api
 servlet:
   context-path: /api

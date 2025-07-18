@@ -12,6 +12,11 @@ import java.net.http.HttpClient;
  */
 public interface UserService extends IService<User> {
     /**
+     * 用户登陆状态
+     */
+    String USER_LOGIN_STATE = "userLoginState";
+
+    /**
      * 用户注册
      * @param userAccount
      * @param userPassword
@@ -29,5 +34,5 @@ public interface UserService extends IService<User> {
      */
     User doLogin(String userAccount, String userPassword, HttpServletRequest request);
 
-
+    User getSafetyUser(User originUser);
 }

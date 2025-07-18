@@ -5,11 +5,11 @@ package org.hxw.backend.constant;
  * @date 2025-06-01 11:19
  */
 public interface UserConstant {
+
     /**
      * 用户登陆状态
      */
     String USER_LOGIN_STATE = "userLoginState";
-
     /**
      * 默认权限
      */
