@@ -13,9 +13,9 @@ spring:
 
 server:
   port: 8999
-#指定全局接口api
-servlet:
-  context-path: /api
+  #指定全局接口api
+  servlet:
+    context-path: /api
 
 mybatis-plus:
   configuration:
