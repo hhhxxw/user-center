@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: Solving the Maximum Subarray Problem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-arrow {
+            position: relative;
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 2rem;
+            color: #0582CA;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#006494] mb-2">The Maximum Subarray Problem</h1>
+            <p class="text-lg md:text-xl text-gray-600">An interactive guide to understanding one of programming's classic challenges.</p>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <section class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#006494] mb-4 text-center">The Challenge</h2>
+                <p class="text-center text-gray-700 mb-6 max-w-3xl mx-auto">Given an array of integers, the goal is to find the contiguous subarray (containing at least one number) which has the largest sum. For example, consider the array below.</p>
+                <div class="bg-[#00A6FB] text-white rounded-lg p-4 font-mono text-center text-lg md:text-xl shadow-inner">
+                    [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+                </div>
+                <p class="text-center text-gray-700 mt-6 max-w-3xl mx-auto">The subarray <span class="font-bold text-[#E36414]">[4, -1, 2, 1]</span> has the largest sum.</p>
+                <div class="text-center mt-4">
+                    <span class="text-7xl md:text-8xl font-black text-[#FBAF00]">6</span>
+                </div>
+            </section>
+            
+            <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#006494] mb-4">The Naive Approach</h2>
+                <p class="text-gray-700 mb-4">The most straightforward solution is to check every single possible subarray, calculate its sum, and keep track of the largest one found. This is known as the brute-force method.</p>
+                <p class="text-gray-700 mb-4">While simple to conceptualize, it's very inefficient. For an array of size 'n', you would have to perform approximately $n^2$ calculations, which becomes incredibly slow for large arrays.</p>
+                 <div class="bg-gray-50 p-4 rounded-lg mt-4 border border-gray-200">
+                    <h3 class="font-semibold text-[#006494]">Complexity</h3>
+                    <p class="font-mono text-2xl text-[#E36414]">O(n²)</p>
+                </div>
+            </section>
+            
+            <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                 <h2 class="text-2xl font-bold text-[#006494] mb-4">Performance Comparison</h2>
+                 <p class="text-gray-700 mb-4">This chart visualizes the dramatic difference in the number of operations required between the brute-force method and a more optimized approach as the input size grows. Note the logarithmic scale needed to display both values on the same chart.</p>
+                 <div class="chart-container" style="max-height: 280px; height: 250px;">
+                    <canvas id="complexityChart"></canvas>
+                </div>
+            </section>
+
+            <section class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#006494] mb-4 text-center">A Smarter Way: Kadane's Algorithm</h2>
+                <p class="text-center text-gray-700 mb-6 max-w-3xl mx-auto">A much more efficient solution uses Dynamic Programming. Kadane's algorithm iterates through the array just once, making a simple decision at each step. This reduces the complexity to be linear with the size of the array.</p>
+                 <div class="w-full max-w-4xl mx-auto mt-8">
+                     <div class="text-center bg-gray-50 p-4 rounded-t-lg border-2 border-[#0582CA]">
+                        <p class="font-semibold text-[#006494]">START: Initialize `currentMax` and `globalMax` with the first element.</p>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="text-center bg-gray-50 p-4 border-2 border-dashed border-[#0582CA]">
+                        <p class="font-semibold text-[#006494]">LOOP: For each element in the array...</p>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="relative p-6 border-2 border-[#0582CA] rounded-lg bg-white">
+                        <div class="absolute -top-3 -left-3 bg-[#FBAF00] text-white text-xs font-bold px-2 py-1 rounded-full">DECISION</div>
+                        <p class="text-center font-semibold text-lg text-[#006494]">Does adding the current number to the previous subarray sum help, or is it better to start a new subarray with just the current number?</p>
+                        <p class="font-mono text-center text-lg mt-2 bg-gray-100 p-2 rounded">currentMax = max(num, currentMax + num)</p>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                     <div class="text-center bg-gray-50 p-4 border-2 border-dashed border-[#0582CA]">
+                        <p class="font-semibold text-[#006494]">UPDATE: Is the new `currentMax` the largest sum seen so far?</p>
+                        <p class="font-mono text-center text-lg mt-1 bg-gray-100 p-2 rounded">globalMax = max(globalMax, currentMax)</p>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="text-center bg-green-100 p-4 rounded-b-lg border-2 border-green-500">
+                        <p class="font-semibold text-green-700">END: Return `globalMax`</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#006494] mb-4 text-center">Algorithm in Action</h2>
+                <p class="text-center text-gray-700 mb-6 max-w-3xl mx-auto">This chart tracks the values of `currentMax` and `globalMax` as the algorithm processes our example array. Watch how `currentMax` drops when negative numbers are encountered but `globalMax` preserves the highest peak.</p>
+                 <div class="chart-container">
+                    <canvas id="kadaneChart"></canvas>
+                </div>
+            </section>
+
+             <section class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#006494] mb-4">Key Takeaways</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-[#E36414] text-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-xl mb-2">Time Complexity</h3>
+                        <p class="text-4xl font-black">O(n)</p>
+                        <p class="mt-2">The algorithm runs in linear time, meaning its runtime is directly proportional to the size of the input array. Ultra efficient!</p>
+                    </div>
+                     <div class="bg-[#0582CA] text-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-xl mb-2">Space Complexity</h3>
+                        <p class="text-4xl font-black">O(1)</p>
+                        <p class="mt-2">It uses a constant amount of extra space, regardless of the array's size, making it memory-friendly.</p>
+                    </div>
+                </div>
+                 <div class="mt-8 text-center text-gray-700">
+                    <p>Kadane's Algorithm is a perfect example of how a clever, dynamic approach can solve a complex problem in a simple and highly performant way. It's a fundamental algorithm in computer science for its elegance and efficiency.</p>
+                 </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function wrapLabels(label, maxWidth) {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+        
+        const sharedChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#374151',
+                        font: {
+                            family: "'Inter', sans-serif",
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: '#4B5563',
+                        font: {
+                            family: "'Inter', sans-serif",
+                        }
+                    },
+                    grid: {
+                        color: '#E5E7EB'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#4B5563',
+                        font: {
+                            family: "'Inter', sans-serif",
+                        }
+                    },
+                    grid: {
+                        color: '#F9FAFB'
+                    }
+                }
+            }
+        };
+
+        const kadaneData = {
+            labels: ['-2', '1', '-3', '4', '-1', '2', '1', '-5', '4'],
+            datasets: [
+                {
+                    label: 'currentMax',
+                    data: [-2, 1, -2, 4, 3, 5, 6, 1, 5],
+                    borderColor: '#FBAF00',
+                    backgroundColor: '#FBAF00',
+                    tension: 0.1,
+                    borderWidth: 3
+                },
+                {
+                    label: 'globalMax',
+                    data: [-2, 1, 1, 4, 4, 5, 6, 6, 6],
+                    borderColor: '#E36414',
+                    backgroundColor: '#E36414',
+                    tension: 0.1,
+                    borderWidth: 3,
+                    borderDash: [5, 5]
+                }
+            ]
+        };
+
+        new Chart(document.getElementById('kadaneChart'), {
+            type: 'line',
+            data: kadaneData,
+            options: {
+                ...sharedChartOptions,
+                scales: {
+                     ...sharedChartOptions.scales,
+                    x: {
+                        ...sharedChartOptions.scales.x,
+                        title: {
+                            display: true,
+                            text: 'Array Element Value',
+                            color: '#006494',
+                             font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        const complexityData = {
+            labels: ["Brute Force O(n²)", "Kadane's O(n)"],
+            datasets: [{
+                label: 'Operations for n=1000',
+                data: [1000000, 1000],
+                backgroundColor: ['#0582CA', '#FBAF00'],
+                borderColor: ['#006494', '#E36414'],
+                borderWidth: 2
+            }]
+        };
+
+        new Chart(document.getElementById('complexityChart'), {
+            type: 'bar',
+            data: complexityData,
+            options: {
+                ...sharedChartOptions,
+                indexAxis: 'y',
+                scales: {
+                     ...sharedChartOptions.scales,
+                    x: {
+                         ...sharedChartOptions.scales.x,
+                        type: 'logarithmic',
+                        title: {
+                            display: true,
+                            text: 'Number of Operations (Log Scale)',
+                            color: '#006494',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                     y: {
+                        ...sharedChartOptions.scales.y,
+                        ticks: {
+                            ...sharedChartOptions.scales.y.ticks,
+                             callback: function(value, index, values) {
+                                return this.getLabelForValue(value);
+                             }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                         callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    label += context.parsed.x.toLocaleString();
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

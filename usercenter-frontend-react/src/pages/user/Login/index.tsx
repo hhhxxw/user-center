@@ -12,7 +12,7 @@ import {
 } from '@ant-design/pro-components';
 import { Alert, message, Tabs } from 'antd';
 import React, { useState } from 'react';
-import { history, useModel } from 'umi';
+import {history, Link, useModel} from 'umi';
 import styles from './index.less';
 import {PLATFORM_LINK, SYSTM_LOGO} from "@/constant";
 const LoginMessage: React.FC<{
@@ -137,12 +137,16 @@ const Login: React.FC = () => {
           {status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}
           <div
             style={{
+              display: 'flex',
               marginBottom: 24,
+              justifyContent: 'space-between',
+              alignItems: 'center'
             }}
           >
             <ProFormCheckbox noStyle name="autoLogin">
               自动登录
             </ProFormCheckbox>
+            <Link to= "/user/register">注册账户</Link>
             <a
               style={{
                 float: 'right',
@@ -150,7 +154,7 @@ const Login: React.FC = () => {
               href={PLATFORM_LINK}
               target="_blank" rel="noreferrer"
             >
-              忘记密码联系鱼皮
+              忘记密码
             </a>
           </div>
         </LoginForm>
