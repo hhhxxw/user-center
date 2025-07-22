@@ -12,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.hxw.backend.constant.UserConstant.ADMIN_ROLE;
+import static org.hxw.backend.constant.UserConstant.USER_LOGIN_STATE;
 
 
 /**
@@ -115,4 +117,23 @@ public class UserController {
         User user = (User) userObj;
         return user != null && user.getUserRole() == ADMIN_ROLE;
     }
+
+    /**
+     * 获取当前登陆态，信息
+     * @param request
+     * @return
+     */
+    @GetMapping("/currentUser")
+    public User getCurrentUser(HttpServletRequest request){
+        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
+        User currentUser = (User)  userObj;
+        if(currentUser == null){
+            return null;
+        }
+        long userId = currentUser.getId();
+        //TODO 校验用户是否合法(是否被封号)
+        User user = userService.getById(userId);
+        return userService.getSafetyUser(user);
+    }
+
 }
