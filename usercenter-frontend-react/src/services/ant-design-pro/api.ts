@@ -50,6 +50,15 @@ export async function getNotices(options?: { [key: string]: any }) {
   });
 }
 
+/** 此处后端没有提供注释 GET /api/search */
+export async function searchUsers(options?: { [key: string]: any }) {
+  return request<API.CurrentUser[]>('/api/user/search', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+
+
 /** 获取规则列表 GET /api/rule */
 export async function rule(
   params: {
@@ -93,3 +102,4 @@ export async function removeRule(options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
+
