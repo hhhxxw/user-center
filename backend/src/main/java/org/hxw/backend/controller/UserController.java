@@ -71,6 +71,19 @@ public class UserController {
     }
 
     /**
+     * 用户登出
+     * @param request
+     * @return
+     */
+    @PostMapping("/logout")
+    public Integer userLogout(HttpServletRequest request){
+       if(request == null){
+           return null;
+       }
+       return userService.userLogout(request);
+    }
+
+    /**
      * 查询用户列表
      * @param username
      * @param request HttpServletRequest request 是javaweb中的常见对象，代表客户端的HTTP请求，这里用来获取Session，从而得到当前用户的信息
@@ -135,5 +148,6 @@ public class UserController {
         User user = userService.getById(userId);
         return userService.getSafetyUser(user);
     }
+
 
 }
