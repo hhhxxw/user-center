@@ -162,28 +162,22 @@ const Register: React.FC = () => {
                   },
                 ]}
               />
+              <ProFormText
+                name="planetCode"
+                fieldProps={{
+                  size: 'large',
+                  prefix: <UserOutlined className={styles.prefixIcon} />,
+                }}
+                placeholder={'请输入星球编号'}
+                rules={[
+                  {
+                    required: true,
+                    message: '星球编号是必填项！',
+                  },
+                ]}
+              />
             </>
           )}
-
-          {/*{status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}*/}
-          {/*<div*/}
-          {/*  style={{*/}
-          {/*    marginBottom: 24,*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  <ProFormCheckbox noStyle name="autoLogin">*/}
-          {/*    自动登录*/}
-          {/*  </ProFormCheckbox>*/}
-          {/*  <a*/}
-          {/*    style={{*/}
-          {/*      float: 'right',*/}
-          {/*    }}*/}
-          {/*    href={PLATFORM_LINK}*/}
-          {/*    target="_blank" rel="noreferrer"*/}
-          {/*  >*/}
-          {/*    忘记密码联系鱼皮*/}
-          {/*  </a>*/}
-          {/*</div>*/}
         </LoginForm>
       </div>
       <Footer />

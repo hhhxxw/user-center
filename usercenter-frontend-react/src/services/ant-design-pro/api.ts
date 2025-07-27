@@ -31,7 +31,7 @@ export async function login(body: API.LoginParams, options?: { [key: string]: an
 }
 
 /** 注册接口 POST /api/login/register */
-export async function register(body: API.LoginParams, options?: { [key: string]: any }) {
+export async function register(body: API.RegisterParams, options?: { [key: string]: any }) {
   return request<API.RegisterResult>('/api/user/register', {
     method: 'POST',
     headers: {

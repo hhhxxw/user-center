@@ -23,7 +23,7 @@ public interface UserService extends IService<User> {
      * @param checkPassword
      * @return 用户id
      */
-    public long userRegister(String userAccount, String userPassword, String checkPassword);
+    public long userRegister(String userAccount, String userPassword, String checkPassword, String planetCode);
 
 
     /**
