@@ -3,6 +3,8 @@ package org.hxw.backend.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
+import org.hxw.backend.common.BaseReponse;
+import org.hxw.backend.common.ResultUtils;
 import org.hxw.backend.model.domain.User;
 import org.hxw.backend.model.domain.UserLoginRequest;
 import org.hxw.backend.model.domain.UserRegisterRequest;
@@ -37,7 +39,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/register")
-    public Long userRegister(@RequestBody UserRegisterRequest userRegisterRequest ){
+    public BaseReponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest ){
         if(userRegisterRequest == null){
             return null;
         }
@@ -49,7 +51,9 @@ public class UserController {
         if(StringUtils.isAnyBlank(userAccount,userPassword,checkPassword, planetCode)){
             return null;
         }
-        return userService.userRegister(userAccount,userPassword,checkPassword, planetCode);
+        long result =  userService.userRegister(userAccount,userPassword,checkPassword, planetCode);
+//        return new BaseReponse<>(0, result, "ok");
+        return ResultUtils.success(result);
     }
 
     /**
@@ -59,7 +63,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public User userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request){
+    public BaseReponse<User> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request){
         if(userLoginRequest == null){
             return null;
         }
@@ -68,8 +72,12 @@ public class UserController {
         if(StringUtils.isAnyBlank(userAccount, userPassword)){
             return null;
         }
-        return userService.doLogin(userAccount, userPassword, request);
+        User user = userService.doLogin(userAccount, userPassword, request);
+//        return new BaseReponse<>(0, user, "ok");
+        return ResultUtils.success(user);
+
     }
+
 
     /**
      * 用户登出
@@ -77,11 +85,12 @@ public class UserController {
      * @return
      */
     @PostMapping("/logout")
-    public Integer userLogout(HttpServletRequest request){
+    public BaseReponse<Integer> userLogout(HttpServletRequest request){
        if(request == null){
            return null;
        }
-       return userService.userLogout(request);
+       int result = userService.userLogout(request);
+       return ResultUtils.success(result);
     }
 
     /**
@@ -91,7 +100,7 @@ public class UserController {
      * @return
      */
     @GetMapping("/search")
-    public List<User> searchUsers(String username, HttpServletRequest request){
+    public BaseReponse<List<User>> searchUsers(String username, HttpServletRequest request){
         if(!isAdmin(request)){
             return null;
         }
@@ -100,9 +109,10 @@ public class UserController {
             queryWrapper.like("username", username);
         }
         List<User> userList = userService.list(queryWrapper);
-        return userList.stream().map(user -> {
+        List<User> list = userList.stream().map(user -> {
             return userService.getSafetyUser(user);
         }).collect(Collectors.toList());
+        return ResultUtils.success(list);
     }
 
     /**
@@ -111,14 +121,15 @@ public class UserController {
      * @return
      */
     @PostMapping("/delete")
-    public boolean deleteUser(@RequestBody long id, HttpServletRequest request){
+    public BaseReponse<Boolean> deleteUser(@RequestBody long id, HttpServletRequest request){
         if(!isAdmin(request)){
-            return false;
+            return null;
         }
         if(id <= 0){
-            return false;
+            return null;
         }
-        return userService.removeById(id);
+        boolean b = userService.removeById(id);
+        return ResultUtils.success(b);
     }
 
     /**
@@ -138,7 +149,7 @@ public class UserController {
      * @return
      */
     @GetMapping("/currentUser")
-    public User getCurrentUser(HttpServletRequest request){
+    public BaseReponse<User> getCurrentUser(HttpServletRequest request){
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User currentUser = (User)  userObj;
         if(currentUser == null){
@@ -147,7 +158,8 @@ public class UserController {
         long userId = currentUser.getId();
         //TODO 校验用户是否合法(是否被封号)
         User user = userService.getById(userId);
-        return userService.getSafetyUser(user);
+        User safetyUser = userService.getSafetyUser(user);
+        return ResultUtils.success(safetyUser);
     }
 
 
