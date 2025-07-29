@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.hxw.backend.common.BaseReponse;
+import org.hxw.backend.common.ErrorCode;
 import org.hxw.backend.common.ResultUtils;
 import org.hxw.backend.model.domain.User;
 import org.hxw.backend.model.domain.UserLoginRequest;
@@ -34,14 +35,14 @@ public class UserController {
     private UserServiceImpl userService;
 
     /**
-     *
+     *用户注册
      * @param userRegisterRequest
      * @return
      */
     @PostMapping("/register")
     public BaseReponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest ){
         if(userRegisterRequest == null){
-            return null;
+            return ResultUtils.error(ErrorCode.PARAMS_ERROR);
         }
         String userAccount = userRegisterRequest.getUserAccount();
         String userPassword = userRegisterRequest.getUserPassword();
@@ -65,12 +66,12 @@ public class UserController {
     @PostMapping("/login")
     public BaseReponse<User> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request){
         if(userLoginRequest == null){
-            return null;
+            return ResultUtils.error(ErrorCode.PARAMS_ERROR);
         }
         String userAccount = userLoginRequest.getUserAccount();
         String userPassword = userLoginRequest.getUserPassword();
         if(StringUtils.isAnyBlank(userAccount, userPassword)){
-            return null;
+            return ResultUtils.error(ErrorCode.PARAMS_ERROR);
         }
         User user = userService.doLogin(userAccount, userPassword, request);
 //        return new BaseReponse<>(0, user, "ok");
